@@ -10,14 +10,27 @@ import logger from "./middleware/logger.js";
 import validator from "./middleware/validator.js";
 import error from "./middleware/error.js";
 
+// Briefs Data Import For View Route
+
+import briefs from "./data/briefs.js";
+
 // Route Imports
 
-import briefs from "./routes/briefs.js";
-import contacts from "./routes/contacts.js";
-import team from "./routes/team.js";
+import briefsRouter from "./routes/briefs.js";
+import contactsRouter from "./routes/contacts.js";
+import teamRouter from "./routes/team.js";
 
 const app = express();
 const port = 3000;
+
+// View Route For Briefs.ejs
+
+app.get("/briefs", (req, res) => {
+
+    res.render("briefs", { briefs });
+
+    }
+);
 
 // Parsing Middleware
 
@@ -39,9 +52,9 @@ app.use(validator);
 
 // Route Use
 
-app.use("/api/briefs", briefs);
-app.use("/api/contacts", contacts);
-app.use("/api/team", team);
+app.use("/api/briefs", briefsRouter);
+app.use("/api/contacts", contactsRouter);
+app.use("/api/team", teamRouter);
 
 // Error Middleware Use
 

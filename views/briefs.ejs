@@ -1,8 +1,8 @@
-/* Briefs Dashboard — server-rendered page that displays all the briefs and includes a form to create a new one.
+<!-- Briefs Dashboard — server-rendered page that displays all the briefs and includes a form to create a new one.
 Requirements - Create and render at least one view using a view template and template engine. This can be a custom
 template engine or a third-party engine, Weight 8%.
 Use simple CSS to style the rendered views, Weight 2%.
-Include a form within a rendered view that allows for interaction with your RESTful API, Weight 3%.
+Include a form within a rendered view that allows for interaction with your RESTful API, Weight 3%. -->
 
 <!DOCTYPE html>
 
@@ -30,9 +30,47 @@ Include a form within a rendered view that allows for interaction with your REST
 
         <main>
 
-            <section id="briefsSection"></section>
+<!-- Section To Display Active Briefs -->
 
-            <section id="formSection"></section>
+            <section id="briefsSection">
+
+                <h2>Active Briefs</h2>
+
+                <% briefs.forEach((brief) => { %>
+
+                    <div class="brief-card">
+
+                        <p><strong>Project Name:</strong> <%= brief.projectName %></p>
+                        <p><strong>Project Type:</strong> <%= brief.projectType %></p>
+                        <p><strong>Timeline:</strong> <%= brief.timeline %></p>
+                        <p><strong>Brief Status:</strong> <%= brief.status %></p>
+                        
+                    </div>
+
+                <% }) %>
+
+            </section>
+
+<!-- Section To Submit A New Brief -->
+<!-- Include a form within a rendered view that allows for interaction with your RESTful API, Weight 3%. -->
+
+            <section id="formSection">
+
+                <h2>Brief Submission</h2>
+
+                <form action="/api/briefs" method="POST">
+
+                    <input type="text" name="projectName" id="project-name" placeholder="Please provide the project name." required>
+                    <input type="text" name="projectType" id="project-type" placeholder="Please provide the project type." required>
+                    <input type="text" name="timeline" id="timeline" placeholder="Please provide the project timeline." required>
+                    <textarea name="targetAudience" id="target-audience" placeholder="Who your campaign is for. Demographics" required></textarea>
+                    <input type="text" name="status" id="status" placeholder="Ex: Not Started, Active, On Hold, Completed, Cancelled.">
+
+                    <button type="submit">Submit Brief</button>
+
+                </form>
+
+            </section>
 
         </main>
 
