@@ -11,12 +11,24 @@ Create POST routes for data, as appropriate. At least one data category should a
 creation via a POST request, Weight	5%
 */
 
+/* Query Parameters For Data Filtering (One Required): Data Filtering Implemented On All 3 Data Categories - 1 of 3
+Requirements - Include query parameters for data filtering, where appropriate. At least one data category
+should allow for additional filtering through the use of query parameters, Weight 5%. */
+
 router
     .route("/")
     .get((req, res) => {
 
-        res.json(briefs);
+        if (req.query.status) {
 
+            const filteredBriefs = briefs.filter((brief) => brief.status === req.query.status);
+            res.json(filteredBriefs);
+            
+        } else {
+
+                 res.json(briefs);
+
+        }
     }
 )
 
