@@ -10,7 +10,7 @@ const contacts = [
         email: "vfitzgerald@mothersnaturefoods.com",
         phone: "212-754-3600 extension 15",
         preferredContact: "Email",
-        status: Active
+        status: "Active"
 
     },
 
@@ -21,7 +21,7 @@ const contacts = [
         email: "jrichardson@crazykicks.com",
         phone: "718-714-2638",
         preferredContact: "Phone",
-        status: Active
+        status: "Active"
 
     }
 
