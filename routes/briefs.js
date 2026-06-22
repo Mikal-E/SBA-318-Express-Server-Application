@@ -48,8 +48,8 @@ router
         };
 
         briefs.push(brief);
-        res.json(briefs[briefs.length - 1]);
-        // res.redirect("briefs.js");
+        // res.json(briefs[briefs.length - 1]);
+        res.redirect("/briefs");
         } else res.status(400).json({error: "Insufficient Data" });
 
     }
