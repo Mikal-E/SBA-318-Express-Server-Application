@@ -2,45 +2,27 @@
 
 
 
-###### **Overview**
+###### **Description**
 
 
 
-A single page web application built as part of the Brief.io portfolio ecosystem. The briefs dashboard allows agency admins to view their briefs that are available within the Sass product. It also allows them to submit new briefs also.
+A Node.js and Express server application built as part of the Brief.io portfolio ecosystem. The server powers the Briefs Dashboard, a rendered view that allows agency admins to view and submit campaign briefs.
 
 
 
-The rendered view is currently simplified for 1st iteration purposes and does not display the full functionality as it is simply the inital iteration. However, within the codebase all requirements have been satisfied with everything being fully functional.
-
-
-
-✅ Three data files (briefs, contacts, team)
-
-✅ Three route files with full CRUD (briefs, contacts, team)
-
-✅ Three middleware files (logger, validator, error handler)
-
-✅ Query parameter filtering on all three routes
-
-✅ Error-handling Middleware
-
-✅ Reasonable data structuring
-
-✅ Chained Routes: GET Routes To Return All Briefs, Contacts, \& Team Data \& POST Routes For All Briefs, Contacts, \& Team Data.
-
-✅ Chained Routes: GET Route To Return One Brief By Id | PATCH Route To Update A Brief By Id | DELETE Route To Delete A Brief By Id (Same for contacts and teams routes
-
-✅Template engine rendering a view
-
-✅ Include a form within the rendered view
-
-✅ CSS styling
-
-✅ HTML form interacting with the API
-
-✅Tested and working in Thunderclient
-
-✅ + All other requirements!
+* Custom Middleware (2): Logger middleware logs all incoming requests. Validator middleware checks Content-Type on POST/PATCH
+* Error Handling Middleware: returns appropriate status codes and JSON error messages.
+* Three data categories: briefs, contacts, team.
+* Data Structuring: data categories use consistent key/value structures with unique IDs.
+* GET Routes: Implemented for all three data categories (all records and by ID).
+* POST Routes: Implemented for all three data categories.
+* PATCH Routes: Implemented for all three data categories.
+* DELETE Routes: Implemented for all three data categories.
+* Query Parameters:  Status filtering implemented on all three GET all routes.
+* Route Parameters: All three route files use /:id for single data objects.
+* Template Engine: EJS used to render the Briefs Dashboard view.
+* CSS Styling: Brief.io brand styling applied.
+* HTML Form: Brief Submission form on the dashboard.
 
 
 
